@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Login</title>
+    <style>
+        body {
+            background-color: black;
+            color: white;
+            text-align: center;
+            font-family: Arial, sans-serif;
+        }
+
+        label {
+            color: red;
+            font-weight: bold;
+        }
+
+        input {
+            padding: 8px;
+            margin: 10px;
+            width: 250px;
+        }
+
+        button {
+            padding: 10px 20px;
+            background-color: green;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: darkgreen;
+        }
+        a {
+            color: white;
+        }
+        
+    </style>
+</head>
+<body>
+    <h1>تسجيل الدخول</h1>
+
+    <label for="name">Name:</label><br>
+    <input type="text" id="name"><br>
+
+    <label for="password">Password:</label><br>
+    <input type="password" id="password"><br>
+
+    <button onclick="login()">Login</button>
+
+    <script>
+        function login() {
+            const name = document.getElementById("name").value.trim();
+            const password = document.getElementById("password").value.trim();
+
+            const storedName = localStorage.getItem("userName");
+            const storedPassword = localStorage.getItem("userPassword");
+
+            if (name === storedName && password === storedPassword) {
+                alert("تم تسجيل الدخول بنجاح!");
+                window.location.href = "adam.html";
+            } else {
+                alert("البيانات غير صحيحة. حاول مرة أخرى.");
+            }
+        }
+    </script>
+    <div>
+        <br>
+        <a href="Logen.html">إنشاء حساب</a>
+    </div>
+</body>
+</html>
